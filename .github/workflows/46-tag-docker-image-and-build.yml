@@ -35,6 +35,10 @@ jobs:
         id: configure-url
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
 
+      - name: Get Public IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+
       - name: Build and push Docker images
         id: push
         uses: docker/build-push-action@v7.2.0
